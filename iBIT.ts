@@ -94,7 +94,27 @@ namespace iBIT {
            pins.analogWritePin(AnalogPin.P16, motorspeed)
         }
     }
-
+   /**Motor Block to drives motor forward and backward. The speed motor is adjustable between 0 to 100.
+      * @param speed percent of maximum speed, eg: 50
+      */
+    //% blockId="ibit_Motor1" block="Motor1 %motor|speed %speed"
+    //% speed.min=0 speed.max=100
+    //% weight=95
+    export function Motor1(Motor: motor, speed: number): void {  
+        let motorspeed = pins.map(speed,0,100,0,1023)     
+        if (Motor == motor.Forward) {
+           pins.digitalWritePin(DigitalPin.P13, 1)
+           pins.analogWritePin(AnalogPin.P14, motorspeed)
+           pins.digitalWritePin(DigitalPin.P15, 0)
+           pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+        if (Motor == motor.Backward) {
+           pins.digitalWritePin(DigitalPin.P13, 0)
+           pins.analogWritePin(AnalogPin.P14, motorspeed)
+           pins.digitalWritePin(DigitalPin.P15, 1)
+           pins.analogWritePin(AnalogPin.P16, motorspeed)
+        }
+    }
      /**Turn Block set direction TurnLeft or TurnRight. The speed motor is adjustable between 0 to 100.
       * @param speed percent of maximum speed, eg: 50
       */
