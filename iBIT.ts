@@ -150,6 +150,18 @@ namespace iBIT {
         pins.digitalWritePin(DigitalPin.P15, 1)
         pins.analogWritePin(AnalogPin.P16, 0)
     }
+ 
+    /**New the Motor Stop block is used to stop both motors. The speed is set to 0 automatic.       
+      * 
+      */
+    //% blockId="ibit_MotorStop1" block="Motor Stop1"
+    //% weight=80
+    export function MotorStop1():void{
+        pins.digitalWritePin(DigitalPin.P13, 1)
+        pins.analogWritePin(AnalogPin.P14, 0)
+        pins.digitalWritePin(DigitalPin.P15, 1)
+        pins.analogWritePin(AnalogPin.P16, 0)
+    }
 
 
     /**ReadADC for read analog sensor, Select ADC channel 0-7. 
